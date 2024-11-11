@@ -2,7 +2,7 @@
 pragma solidity 0.8.27;
 
 import {IPriceOracleGetter} from "../interfaces/IPriceOracleGetter.sol";
-import {IXipplePriceFeed} from "./Interface/IXipplePriceFeed.sol";
+import {VistiaPriceFeed} from "./Interface/VistiaPriceFeed.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 import {Errors} from "../libraries/helpers/Errors.sol";
 
@@ -25,7 +25,7 @@ contract PriceOracleGetter is IPriceOracleGetter, Ownable {
         address asset
     ) external view  returns (uint256) {
         address priceFeed = assetsSources[asset];
-        (,int256 answer,,,) = IXipplePriceFeed(priceFeed).latestRoundData();
+        (,int256 answer,,,) = VistiaPriceFeed(priceFeed).latestRoundData();
         return uint256(answer);
     }
 
