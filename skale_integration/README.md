@@ -1,2 +1,0 @@
-# xippleFi-smartcontracts
-xippleFi-smartcontracts
